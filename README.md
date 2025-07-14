@@ -1,11 +1,6 @@
 # Final project - A personal blogging system - Team Noble Nightingales
 
-Team Members:
-- Xiaoyu Cai
-- Ashwin Kaushik
-- Yuchuan Zhai
-
-## Test Environment Setup
+## Environment Setup
 - run npm install in both front & backend folder terminals
 - Done!
 
@@ -88,8 +83,5 @@ Team Members:
 - Run Main.java file
 - Log-in with Admin User
 - Select user for expanded details
-
-## Comments
-- Andrew had allowed us to slightly modify the Swing component requirements as we are in a group of three rather than four. Specifically, we removed the delete button. 
 
 ![](./backend/public/images/Noble%20Nightingales.webp)
