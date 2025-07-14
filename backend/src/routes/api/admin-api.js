@@ -61,13 +61,11 @@ router.post('/register', upload.single('avatar'), async (req, res) => {
   }
 });
 
-// 上传头像的路由
 router.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
   }
 
-  // 返回头像的 URL
   const avatarUrl = `/upload/avatars/${req.file.filename}`;
   res.status(200).json({ message: 'Avatar uploaded successfully', avatarUrl:avatarUrl });
 });

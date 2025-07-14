@@ -119,14 +119,12 @@
     });
     console.log(response);
     if (response.ok) {
-      // Optionally, you can update the UI to reflect the like action
-      // 显示成功消息
       await refreshPosts();
       message = "Post liked successfully!";
       showMessage = true;
       setTimeout(() => {
         showMessage = false;
-      }, 3000); // 3秒后隐藏消息
+      }, 3000);
     } else {
       console.error("Failed to like the post");
       // 显示错误消息
@@ -134,7 +132,7 @@
       showMessage = true;
       setTimeout(() => {
         showMessage = false;
-      }, 3000); // 3秒后隐藏消息
+      }, 3000);
     }
 
     const response_ = await fetch(`${PUBLIC_API_BASE_URL}/posts`, {
@@ -248,9 +246,8 @@
 <style>
   .like-icon {
     margin-top: 4px;
-    width: 20px; /* 设置宽度 */
-    height: 20px; /* 设置高度 */
-    /* 你可以根据需要添加其他样式，例如边距等 */
+    width: 20px;
+    height: 20px;
   }
 
   .article-container {
@@ -332,26 +329,26 @@
 
   .header-container {
     display: flex;
-    justify-content: space-between; /* 左右分布 */
-    align-items: center; /* 垂直居中 */
+    justify-content: space-between;
+    align-items: center;
   }
 
   .button-container {
-    display: flex; /* 按钮水平排列 */
-    gap: 10px; /* 按钮之间的间距 */
+    display: flex;
+    gap: 10px;
   }
 
   .like-container {
-    display: flex; /* 让点赞图标和链接并排显示 */
-    align-items: center; /* 垂直居中 */
+    display: flex;
+    align-items: center;
   }
 
   .like-wrapper {
     display: flex;
-    align-items: center; /* 垂直居中对齐 */
+    align-items: center;
   }
 
   .like-count {
-    margin-left: 7px; /* 给点赞数量添加一些左边距 */
+    margin-left: 7px;
   }
 </style>

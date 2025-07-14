@@ -32,7 +32,7 @@
     });
 
     if (response.ok) {
-      const data = await response.json(); // 解析 JSON 响应
+      const data = await response.json();
       console.log(JSON.stringify(data));
 
       const updatedPosts = blogPosts.map((post) => {
@@ -40,28 +40,28 @@
           if (data.message.includes("Post liked successfully")) {
             post.likeCount += 1;
             message = "Post liked successfully!";
-            post.isLiked = 1; // 假设 isLiked 用于表示是否已点赞
+            post.isLiked = 1;
           } else if (data.message.includes("Post unliked successfully")) {
             post.likeCount -= 1;
             message = "Post unliked successfully!";
-            post.isLiked = 0; // 假设 isLiked 用于表示是否已点赞
+            post.isLiked = 0;
           }
         }
         return post;
       });
 
-      blogPosts = updatedPosts; // 更新状态
+      blogPosts = updatedPosts;
       showMessage = true;
       setTimeout(() => {
         showMessage = false;
-      }, 1000); // 1秒后隐藏消息
+      }, 1000);
     } else {
       console.error("Failed to like the post");
       message = "Failed to like the post.";
       showMessage = true;
       setTimeout(() => {
         showMessage = false;
-      }, 1000); // 1秒后隐藏消息
+      }, 1000);
     }
   }
 
@@ -75,7 +75,7 @@
     console.log(response);
     if (response.ok) {
       const data = await response.json();
-      blogPosts = [...data]; // 确保创建新数组以触发更新
+      blogPosts = [...data];
     } else {
       console.error("Failed to search posts");
     }
@@ -156,8 +156,8 @@
 <style>
   .like-icon {
     margin-top: 4px;
-    width: 20px; /* 设置宽度 */
-    height: 20px; /* 设置高度 */
+    width: 20px;
+    height: 20px;
   }
 
   .message {
@@ -257,21 +257,21 @@
 
   .post-actions {
     display: flex;
-    align-items: center; /* 垂直居中对齐 */
+    align-items: center;
   }
 
   .like-container {
-    display: flex; /* 让点赞图标和链接并排显示 */
-    align-items: center; /* 垂直居中 */
+    display: flex;
+    align-items: center;
   }
 
   .like-wrapper {
     display: flex;
-    align-items: center; /* 垂直居中对齐 */
+    align-items: center;
   }
 
   .like-count {
-    margin-left: 7px; /* 给点赞数量添加一些左边距 */
+    margin-left: 7px;
   }
 
   .read-more {

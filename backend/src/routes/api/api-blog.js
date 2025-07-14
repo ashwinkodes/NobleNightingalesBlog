@@ -263,13 +263,11 @@ router.delete("/:postId/images/:imageId", authenticateUser, async (req, res) => 
   }
 });
 
-// 上传头像的路由
 router.post('/upload-image', upload.single('image'), async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ message: 'No file uploaded' });
   }
 
-  // 返回头像的 URL
   const imageUrl = `/upload/blogposts/${req.file.filename}`;
   res.status(200).json({ message: 'image uploaded successfully', imageUrl: imageUrl });
 });

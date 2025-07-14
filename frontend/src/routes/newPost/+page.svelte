@@ -35,34 +35,33 @@
     });
     console.log(response);
     if (response.ok) {
-      const data = await response.json(); // 解析 JSON 响应
+      const data = await response.json();
       const updatedPosts = blogPosts.map((post) => {
         if (post.id === postId) {
           if (data.message.includes("Post liked successfully")) {
             post.likeCount += 1;
             message = "Post liked successfully!";
-            post.isLiked = 1; // 假设 isLiked 用于表示是否已点赞
+            post.isLiked = 1;
           } else if (data.message.includes("Post unliked successfully")) {
             post.likeCount -= 1;
             message = "Post unliked successfully!";
-            post.isLiked = 0; // 假设 isLiked 用于表示是否已点赞
+            post.isLiked = 0;
           }
         }
         return post;
       });
-      blogPosts = updatedPosts; // 更新状态
+      blogPosts = updatedPosts;
       showMessage = true;
       setTimeout(() => {
         showMessage = false;
-      }, 3000); // 3秒后隐藏消息
+      }, 3000);
     } else {
       console.error("Failed to like the post");
-      // 显示错误消息
       message = "Failed to like the post.";
       showMessage = true;
       setTimeout(() => {
         showMessage = false;
-      }, 3000); // 3秒后隐藏消息
+      }, 3000);
     }
 
     const response_1 = await fetch(`${PUBLIC_API_BASE_URL}/posts/getmyposts`, {
@@ -166,7 +165,6 @@
 {/if}
 
 <style>
-  /* Your existing CSS styles */
 
   .message {
     position: fixed;
@@ -242,7 +240,7 @@
   }
 
   .read-more {
-    width: auto; /* 如果需要自适应宽度 */
+    width: auto;
     display: inline-block;
     padding: 0.5rem 1rem;
     background-color: #99c3eb;
@@ -250,7 +248,7 @@
     text-decoration: none;
     border-radius: 4px;
     transition: background-color 0.3s ease;
-    white-space: nowrap; /* 禁止换行 */
+    white-space: nowrap;
   }
 
   .read-more:hover {
@@ -279,24 +277,23 @@
   }
 
   .like-container {
-    display: flex; /* 让点赞图标和链接并排显示 */
-    align-items: center; /* 垂直居中 */
+    display: flex;
+    align-items: center;
   }
 
   .like-wrapper {
     display: flex;
-    align-items: center; /* 垂直居中对齐 */
+    align-items: center;
   }
 
   .like-count {
-    margin-left: 7px; /* 给点赞数量添加一些左边距 */
+    margin-left: 7px;
   }
 
   .like-icon {
     margin-top: 4px;
-    width: 20px; /* 设置宽度 */
-    height: 20px; /* 设置高度 */
-    /* 你可以根据需要添加其他样式，例如边距等 */
+    width: 20px;
+    height: 20px;
   }
 
   .add-button {

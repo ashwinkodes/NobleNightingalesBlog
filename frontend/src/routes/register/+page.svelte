@@ -110,13 +110,12 @@
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        customAvatar = reader.result; // 显示预览
-        avatar = customAvatar; // 你可以在需要时使用这个值
+        customAvatar = reader.result;
+        avatar = customAvatar;
         checkFormValidity();
       };
       reader.readAsDataURL(file);
 
-      // 调用上传头像接口
       const formData = new FormData();
       formData.append("avatar", file);
 
@@ -131,7 +130,7 @@
         }
 
         const data = await response.json();
-        avatar = data.avatarUrl; // 更新头像 URL
+        avatar = data.avatarUrl;
       } catch (error) {
         console.error(error);
       }
@@ -229,7 +228,7 @@
         />
       </div>
 
-      <!-- Date of Birth Field (Optional) -->
+      <!-- Date of Birth Field  -->
       <div class="form-group">
         <label for="dateOfBirth">
           <span class="required">*</span> Date of Birth (REQUIRED)

@@ -11,7 +11,7 @@
     const dispatch = createEventDispatcher();
 
     function handleRefresh() {
-        dispatch('refresh'); // 重新触发 refresh 事件
+        dispatch('refresh');
     }
 </script>
 
@@ -26,6 +26,6 @@
 
 <style>
     .replies {
-        margin-left: 30px; /* 适当的缩进 */
+        margin-left: 30px;
     }
 </style>

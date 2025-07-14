@@ -5,7 +5,6 @@
     import { browser } from "$app/environment";
     import dayjs from "dayjs";import relativeTime from "dayjs/plugin/relativeTime";
 
-    // 注册插件
     dayjs.extend(relativeTime);
     import { goto } from "$app/navigation";
     import { auth } from "$lib/stores/auth";
@@ -239,21 +238,20 @@
         height: 48px;
         border-radius: 50%;
         margin-right: 10px;
-        border: 2px solid #78cff7; /* 添加边框与主题色一致 */
+        border: 2px solid #78cff7;
         object-fit: cover;
     }
 
     .date {
         margin-left: 10px;
         font-size: 14px;
-        color: #777; /* 日期字体颜色浅一点 */
+        color: #777;
     }
 
     .author-info:hover {
-        color: #78cff7; /* 鼠标悬停时改变用户名颜色 */
+        color: #78cff7;
     }
   
-    /* 评论内容 */
     .main-content {
       padding: 8px 0;
       color: #333;
@@ -272,14 +270,12 @@
       font-style: italic;
     }
   
-    /* 错误信息 */
     .error {
       font-size: 0.85rem;
       color: red;
       margin-top: 8px;
     }
   
-    /* 按钮 */
     .reply-delete-button, .reply-post-button {
       display: flex;
       gap: 8px;
@@ -323,7 +319,6 @@
         box-shadow: 0 0 5px rgba(158, 179, 132, 0.4);
     }
   
-    /* 按钮样式 */
     .reply-post-button button,
     .reply-delete-button button {
       background-color: #7ac0ee;
@@ -341,7 +336,6 @@
       background-color: #7abbe9;
     }
   
-    /* 响应式调整 */
     @media (max-width: 700px) {
       .avatar {
         width: 32px;

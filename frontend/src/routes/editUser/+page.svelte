@@ -15,7 +15,6 @@ import { auth } from "$lib/stores/auth";
   let success = "";
   let passwordMatchError = false;
 
-  // 计算密码匹配错误
   $: passwordMatchError = (newPassword || confirmPassword) && newPassword !== confirmPassword;
 
   function getAvatarUrl(avatarPath) {
@@ -29,7 +28,6 @@ import { auth } from "$lib/stores/auth";
     error = "";
     success = "";
 
-    // 检查密码匹配
     if (newPassword && confirmPassword && newPassword !== confirmPassword) {
       error = "Passwords do not match";
       return;
@@ -45,7 +43,7 @@ import { auth } from "$lib/stores/auth";
       };
 
       if (newPassword) {
-        updateData.password = newPassword; // 只有在提供新密码时添加
+        updateData.password = newPassword;
       }
 
       const response = await fetch(`${PUBLIC_API_BASE_URL}/users/${$auth.user.id}`, {

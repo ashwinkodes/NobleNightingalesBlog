@@ -88,8 +88,7 @@
     }
 
     async function refreshComments() {
-        // comments = await getComments({ articleId });
-        dispatch('refresh'); // 触发祖父组件的刷新
+        dispatch('refresh');
     }
 
 </script>
@@ -105,7 +104,6 @@
     <textarea class="comment-input" placeholder="Write your comment here!" maxlength="300" disabled={sending} bind:value={commentToArticle} />
     <div class="operations">
         <button on:click={postCommentToArticle} disabled={sending}>Submit</button>
-        <!-- <button on:click={clearTextarea}>Clear</button> -->
     </div>
 
     <div class="list" style="display: {showComments ? '' : 'none'};">
@@ -161,14 +159,13 @@
         color: #333;
     }
 
-    /* 隐藏按钮的默认外观，仅显示图标 */
     .title-button {
         background: transparent;
         border: none;
         padding: 0;
         cursor: pointer;
         position: relative;
-        width: 24px; /* 设置宽度匹配图片 */
+        width: 24px;
         height: 24px;
     }
 

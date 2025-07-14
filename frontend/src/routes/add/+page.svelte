@@ -13,10 +13,9 @@
   async function handleUpdate(event) {
     event.preventDefault();
 
-    // 上传图片并获取图片 URL
     let imageUrl = null;
     if (imageFile) {
-      imageUrl = await handleImageUpload(imageFile[0]); // 上传第一张图片
+      imageUrl = await handleImageUpload(imageFile[0]);
     }
 
     try {
@@ -66,7 +65,7 @@
       }
 
       const result = await response.json();
-      return result.imageUrl; // 假设服务器返回的图片 URL
+      return result.imageUrl;
     } catch (error) {
       console.error("Image upload error:", error);
       alert("Failed to upload image.");

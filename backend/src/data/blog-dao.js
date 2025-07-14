@@ -11,14 +11,12 @@ export async function addBlogPostImage(blogPostId, imageUrl) {
 
 export async function updateBlogPostImage(blogPostId, imageUrl) {
   const db = await getDatabase();
-  
-  // 先尝试更新
+
   const updateResult = await db.run(
     `UPDATE BlogPostImages SET imageUrl = ? WHERE blogPostId = ?`,
     [imageUrl, blogPostId]
   );
   
-  // 如果没有更新到任何行，则插入
   if (updateResult.changes === 0) {
     await db.run(
       `INSERT INTO BlogPostImages (blogPostId, imageUrl) VALUES (?, ?)`,
@@ -26,7 +24,6 @@ export async function updateBlogPostImage(blogPostId, imageUrl) {
     );
   }
 }
-
 
 export async function getBlogPostImages(blogPostId) {
   const db = await getDatabase();
@@ -244,7 +241,6 @@ export async function searchPosts(query, sortBy,userId) {
   console.log(userId);
   
   if (userId!=null) {
-    // 当有 userId 时，检查用户是否喜欢该帖子
     sql = `
       SELECT 
         BlogPosts.*, 
@@ -263,7 +259,6 @@ export async function searchPosts(query, sortBy,userId) {
     `;
     params = [userId, `%${query}%`, `%${query}%`];
   } else {
-    // 当没有 userId 时，不加入 isLiked 字段
     sql = `
       SELECT 
         BlogPosts.*, 
@@ -279,7 +274,6 @@ export async function searchPosts(query, sortBy,userId) {
     params = [`%${query}%`, `%${query}%`];
   }
 
-  // 添加排序条件
   if (sortBy === 'date') {
     sql += " ORDER BY BlogPosts.createdAt DESC";
   } else if (sortBy === 'title') {
